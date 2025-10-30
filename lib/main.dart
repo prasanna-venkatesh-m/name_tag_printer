@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'screens/qr_label_preview_screen.dart';
 
 void main() {
+  String apiUrl = 'https://greatshinyphone95.conveyor.cloud'; //LOCAL
+  // String apiUrl = 'https://stage-techxconf-api.azurewebsites.net';     //STAGE
+  // String apiUrl = 'https://prod-techxconf-api.azurewebsites.net';      //PROD
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
@@ -35,7 +39,7 @@ void main() {
           color: Color(0xFF374151),
         ),
         bodyLarge: TextStyle(
-          fontSize: 16, 
+          fontSize: 16,
           color: Color(0xFF4B5563),
           height: 1.5,
         ),
@@ -82,10 +86,6 @@ void main() {
         shadowColor: Colors.black.withOpacity(0.05),
       ),
     ),
-    home: QRLabelPreviewScreen(
-        apiUrl: "https://stage-techxconf-api.azurewebsites.net"),
+    home: QRLabelPreviewScreen(apiUrl: apiUrl),
   ));
 }
-//https://greatshinyphone95.conveyor.cloud
-//https://stage-techxconf-api.azurewebsites.net
-//https://prod-techxconf-api.azurewebsites.net
