@@ -83,7 +83,7 @@ void main() {
       ),
     ),
     home: QRLabelPreviewScreen(
-        apiUrl: "https://differentbrasssled76.conveyor.cloud"),
+        apiUrl: "https://stage-techxconf-api.azurewebsites.net"),
   ));
 }
 //https://greatshinyphone95.conveyor.cloud
