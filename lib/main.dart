@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'screens/qr_label_preview_screen.dart';
 
 void main() {
-  // String apiUrl = 'https://greatshinyphone95.conveyor.cloud'; //LOCAL
-  String apiUrl = 'https://stage-techxconf-api.azurewebsites.net'; //STAGE
+  String apiUrl = 'https://smallmintbox19.conveyor.cloud'; //LOCAL
+  // String apiUrl = 'https://stage-techxconf-api.azurewebsites.net'; //STAGE
   // String apiUrl = 'https://prod-techxconf-api.azurewebsites.net';      //PROD
 
   runApp(MaterialApp(
