@@ -56,134 +56,172 @@ class _QRLabelPreviewScreenState extends State<QRLabelPreviewScreen> {
                   });
                 },
               )
-            : Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: isDataReady
-                      ? Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            statusMessage.toLowerCase() == 'attendance updated successfully'
-                                ? UserDetailsCard(
-                                    fullName: fullName,
-                                    designation: designation,
-                                    mobileNumber: mobileNumber,
-                                    tShirtSize: tShirtSize,
-                                    qrCodeNumber: qrCodeNumber)
-                                : Column(
+            : LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: IntrinsicHeight(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: isDataReady
+                                ? Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            vertical: 16.0, horizontal: 16.0),
-                                        padding: const EdgeInsets.all(20.0),
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              Color(0xFFFEF2F2),
-                                              Color(0xFFFEE2E2),
-                                            ],
-                                            begin: Alignment.topLeft,
-                                            end: Alignment.bottomRight,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          border: Border.all(
-                                              color: Color(0xFFEF4444).withOpacity(0.2),
-                                              width: 1.5,
-                                          ),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0xFFEF4444).withOpacity(0.1),
-                                              blurRadius: 12,
-                                              offset: Offset(0, 4),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.all(10),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFEF4444).withOpacity(0.15),
-                                                    borderRadius: BorderRadius.circular(12),
-                                                  ),
-                                                  child: Icon(
-                                                    Icons.warning_rounded,
-                                                    color: Color(0xFFEF4444),
-                                                    size: 28,
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 14),
-                                                Expanded(
-                                                  child: Text(
-                                                    statusMessage,
-                                                    style: TextStyle(
-                                                      color: Color(0xFFB91C1C),
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      fontSize: 16,
-                                                      height: 1.4,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      statusMessage ==
-                                              'Attendance has already been updated'
+                                      statusMessage.toLowerCase() ==
+                                              'attendance updated successfully'
                                           ? UserDetailsCard(
                                               fullName: fullName,
                                               designation: designation,
                                               mobileNumber: mobileNumber,
                                               tShirtSize: tShirtSize,
                                               qrCodeNumber: qrCodeNumber)
-                                          : SizedBox()
+                                          : Column(
+                                              children: [
+                                                Container(
+                                                  margin: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 16.0,
+                                                      horizontal: 16.0),
+                                                  padding: const EdgeInsets.all(
+                                                      20.0),
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color(0xFFFEF2F2),
+                                                        Color(0xFFFEE2E2),
+                                                      ],
+                                                      begin: Alignment.topLeft,
+                                                      end:
+                                                          Alignment.bottomRight,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    border: Border.all(
+                                                      color: Color(0xFFEF4444)
+                                                          .withOpacity(0.2),
+                                                      width: 1.5,
+                                                    ),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color(0xFFEF4444)
+                                                            .withOpacity(0.1),
+                                                        blurRadius: 12,
+                                                        offset: Offset(0, 4),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  child: Column(
+                                                    children: [
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          Container(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    10),
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                      0xFFEF4444)
+                                                                  .withOpacity(
+                                                                      0.15),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12),
+                                                            ),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .warning_rounded,
+                                                              color: Color(
+                                                                  0xFFEF4444),
+                                                              size: 28,
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                              width: 14),
+                                                          Expanded(
+                                                            child: Text(
+                                                              statusMessage,
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFFB91C1C),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize: 16,
+                                                                height: 1.4,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                statusMessage ==
+                                                        'Attendance has already been updated'
+                                                    ? UserDetailsCard(
+                                                        fullName: fullName,
+                                                        designation:
+                                                            designation,
+                                                        mobileNumber:
+                                                            mobileNumber,
+                                                        tShirtSize: tShirtSize,
+                                                        qrCodeNumber:
+                                                            qrCodeNumber)
+                                                    : SizedBox()
+                                              ],
+                                            ),
+                                      SizedBox(height: 30),
+                                      Container(
+                                        width: double.infinity,
+                                        padding: EdgeInsets.all(10),
+                                        child: ScanButton(
+                                          label: "Scan New QR Code",
+                                          onScanPressed: () {
+                                            setState(() {
+                                              isScanning = true;
+                                              isDataReady = false;
+                                              fullName = '';
+                                              designation = '';
+                                              mobileNumber = '';
+                                              tShirtSize = '';
+                                              qrCodeNumber = '';
+                                              ticketId = '';
+                                              statusMessage = '';
+                                            });
+                                          },
+                                        ),
+                                      ),
                                     ],
+                                  )
+                                : ScanCardButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        isScanning = true;
+                                        isDataReady = false;
+                                        fullName = '';
+                                        designation = '';
+                                        mobileNumber = '';
+                                        tShirtSize = '';
+                                        ticketId = '';
+                                        qrCodeNumber = '';
+                                        statusMessage = '';
+                                      });
+                                    },
                                   ),
-                            SizedBox(height: 30),
-                            Container(
-                              width: double.infinity,
-                              padding: EdgeInsets.all(10),
-                              child: ScanButton(
-                                label: "Scan New QR Code",
-                                onScanPressed: () {
-                                  setState(() {
-                                    isScanning = true;
-                                    isDataReady = false;
-                                    fullName = '';
-                                    designation = '';
-                                    mobileNumber = '';
-                                    tShirtSize = '';
-                                    qrCodeNumber = '';
-                                    ticketId = '';
-                                    statusMessage = '';
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        )
-                      : ScanCardButton(
-                          onPressed: () {
-                            setState(() {
-                              isScanning = true;
-                              isDataReady = false;
-                              fullName = '';
-                              designation = '';
-                              mobileNumber = '';
-                              tShirtSize = '';
-                              ticketId = '';
-                              qrCodeNumber = '';
-                              statusMessage = '';
-                            });
-                          },
+                          ),
                         ),
-                ),
+                      ),
+                    ),
+                  );
+                },
               ),
       ),
     );
@@ -228,13 +266,14 @@ class _QRLabelPreviewScreenState extends State<QRLabelPreviewScreen> {
           mobileNumber = data['mobileNumber'] ?? '';
           tShirtSize = data['tShirtSize'] ?? '';
           ticketId = scannedTicketId;
-          qrCodeNumber = data['qrNumber'];
+          qrCodeNumber = data['qrNumber'] ?? '';
           statusMessage = data['message'];
           isDataReady = true;
           isScanning = false;
         });
 
-        if (data['message']?.toLowerCase() == "attendance updated successfully") {
+        if (data['message']?.toLowerCase() ==
+            "attendance updated successfully") {
           Fluttertoast.showToast(
             msg: data['message'] ?? "Attendance updated successfully",
             backgroundColor: Colors.green,
