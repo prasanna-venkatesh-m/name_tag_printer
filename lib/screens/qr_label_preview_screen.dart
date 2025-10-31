@@ -283,7 +283,7 @@ class _QRLabelPreviewScreenState extends State<QRLabelPreviewScreen> {
         }
       } else {
         Fluttertoast.showToast(
-          msg: "Error: ${response.body}",
+          msg: "Error:${response.statusCode} ${response.body}",
           backgroundColor: Colors.red,
           textColor: Colors.white,
         );
